@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\CAN\\C#\\P3-csharp\\testeP3\\testeP3\\testeP3.csproj": {}
+  },
+  "projects": {
+    "D:\\CAN\\C#\\P3-csharp\\testeP3\\testeP3\\testeP3.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\CAN\\C#\\P3-csharp\\testeP3\\testeP3\\testeP3.csproj",
+        "projectName": "testeP3",
+        "projectPath": "D:\\CAN\\C#\\P3-csharp\\testeP3\\testeP3\\testeP3.csproj",
+        "packagesPath": "C:\\Users\\caue\\.nuget\\packages\\",
+        "outputPath": "D:\\CAN\\C#\\P3-csharp\\testeP3\\testeP3\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\caue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\bin\Debug\netcoreapp2.2\testeP3.deps.json
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\bin\Debug\netcoreapp2.2\testeP3.runtimeconfig.json
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\bin\Debug\netcoreapp2.2\testeP3.runtimeconfig.dev.json
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\bin\Debug\netcoreapp2.2\testeP3.dll
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\bin\Debug\netcoreapp2.2\testeP3.pdb
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\obj\Debug\netcoreapp2.2\testeP3.csprojAssemblyReference.cache
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\obj\Debug\netcoreapp2.2\testeP3.csproj.CoreCompileInputs.cache
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\obj\Debug\netcoreapp2.2\testeP3.AssemblyInfoInputs.cache
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\obj\Debug\netcoreapp2.2\testeP3.AssemblyInfo.cs
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\obj\Debug\netcoreapp2.2\testeP3.dll
+C:\Users\caue\Desktop\CAN\C#\testeP3\testeP3\obj\Debug\netcoreapp2.2\testeP3.pdb
