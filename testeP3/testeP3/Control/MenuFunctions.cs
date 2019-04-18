@@ -124,6 +124,7 @@ namespace testeP3.Control
             switch (menuOption)
             {
                 default:
+                    break;
             }
         }
 
