@@ -23,7 +23,7 @@ namespace testeP3.Model
 
         public static IList<string> getPlanStatusList()
         {
-            return aux_plan_status_list;
+            return plan_status_list;
         }
     }
 }

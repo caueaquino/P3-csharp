@@ -8,6 +8,149 @@ namespace testeP3.Control
 {
     public class MenuFunctions
     {
+        public static bool ReadMainMenu(string menuOption)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            switch (menuOption)
+            {
+                case "1":
+                    Console.WriteLine(" ----- Menu Planos ----- ");
+                    Console.WriteLine();
+
+                    Console.WriteLine(" Escolha uma opção:");
+                    Console.WriteLine();
+
+                    Console.WriteLine(" 1 - Cadastrar Plano");
+                    Console.WriteLine(" 2 - Remover Plano");
+                    Console.WriteLine(" 3 - Visualizar todos os Planos");
+                    Console.WriteLine(" 4 - Buscar Plano por ID");
+                    Console.WriteLine(" 5 - Editar Plano pelo ID");
+                    Console.WriteLine(" 6 - Visualizar histórico de Planos");
+                    Console.WriteLine(" 7 - Visualizar usúarios relacionados a um Plano");
+                    Console.WriteLine(" 0 - Sair");
+
+                    Console.WriteLine();
+
+                    Console.Write(" Opção: ");
+                    Console.ReadLine();
+
+                    break;
+
+                case "2":
+                    Console.WriteLine(" ----- Menu Usúarios ----- ");
+                    Console.WriteLine();
+
+                    Console.WriteLine(" Escolha uma opção:");
+                    Console.WriteLine();
+
+                    Console.WriteLine(" 1 - Cadastrar usúario");
+                    Console.WriteLine(" 2 - Remover Usúario");
+                    Console.WriteLine(" 3 - Visualizar todos os Usúarios");
+                    Console.WriteLine(" 4 - Buscar Usúario por ID");
+                    Console.WriteLine(" 5 - Editar Usúario por ID");
+                    Console.WriteLine(" 5 - Visualizar histórico de Usúarios");
+                    Console.WriteLine(" 6 - Visualizar planos relacionados a um Usúario");
+                    Console.WriteLine(" 0 - Sair");
+
+                    Console.WriteLine();
+
+                    Console.Write(" Opção: ");
+                    Console.ReadLine();
+
+                    break;
+
+                case "3":
+                    Console.WriteLine(" ----- Menu Tipo de Planos ----- ");
+                    Console.WriteLine();
+
+                    Console.WriteLine(" Escolha uma opção:");
+                    Console.WriteLine();
+
+                    Console.WriteLine(" 1 - Cadastrar Tipo de Plano");
+                    Console.WriteLine(" 2 - Remover Tipo de Plano");
+                    Console.WriteLine(" 3 - Visualizar todos os Tipos de Plano");
+                    Console.WriteLine(" 4 - Visualizar planos relacionados a um Tipo de plano");
+                    Console.WriteLine(" 0 - Sair");
+
+                    Console.WriteLine();
+
+                    Console.Write(" Opção: ");
+                    Console.ReadLine();
+
+                    break;
+
+                case "4":
+                    Console.WriteLine(" ----- Menu Status de Planos ----- ");
+                    Console.WriteLine();
+
+                    Console.WriteLine(" Escolha uma opção:");
+                    Console.WriteLine();
+
+                    Console.WriteLine(" 1 - Cadastrar Status de Plano");
+                    Console.WriteLine(" 2 - Remover Status de Plano");
+                    Console.WriteLine(" 3 - Visualizar todos os Status de Plano");
+                    Console.WriteLine(" 6 - Visualizar planos relacionados a um Status de Plano");
+                    Console.WriteLine(" 0 - Sair");
+
+                    Console.WriteLine();
+
+                    Console.Write(" Opção: ");
+                    Console.ReadLine();
+
+                    break;
+
+                case "0":
+                    Console.WriteLine("Finalizando Programa !");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para confirmar . . .");
+                    Console.Read();
+
+                    return false;
+            }
+
+            return true;
+        }
+
+
+        public static void ReadMenuPlanos(string menuOption)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            switch (menuOption)
+            {
+                default:
+            }
+        }
+
+
+        public static void ReadMenuUser(string menuOption)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+
+        public static void ReadMenuType(string menuOption)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+
+        public static void ReadMenuStatus(string menuOption)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
         public static bool ReadMenuOption(string menuOption)
         {
             string auxFunctions;

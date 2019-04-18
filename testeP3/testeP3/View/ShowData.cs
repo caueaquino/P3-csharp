@@ -8,7 +8,7 @@ namespace testeP3.View
 {
     public static class ShowData
     {
-        public static void showMenu()
+        public static bool showMenu()
         {
             Console.Clear();
             Console.WriteLine();
@@ -18,20 +18,17 @@ namespace testeP3.View
             Console.WriteLine(" Escolha uma opção:");
             Console.WriteLine();
 
-            Console.WriteLine(" 1 - Cadastrar Plano");
-            Console.WriteLine(" 2 - Cadastrar Usúario");
-            Console.WriteLine(" 3 - Exibir todos os Planos");
-            Console.WriteLine(" 4 - Exibir todo os Usúarios");
-            Console.WriteLine(" 5 - Mostrar plano por ID");
-            Console.WriteLine(" 6 - Mostrar usúario por ID");
-            Console.WriteLine(" 7 - Exibir tipos de status de planos");
-            Console.WriteLine(" 8 - Remover Plano pelo ID");
-            Console.WriteLine(" 9 - Remover Usúario pelo ID");
+            Console.WriteLine(" 1 - Gerenciar Planos");
+            Console.WriteLine(" 2 - Gerenciar Usúarios");
+            Console.WriteLine(" 3 - Gerenciar Tipos de Plano");
+            Console.WriteLine(" 4 - Gerenciar Status de Plano");
             Console.WriteLine(" 0 - Sair");
 
             Console.WriteLine();
 
             Console.Write(" Opção: ");
+
+            return MenuFunctions.ReadMainMenu(Console.ReadLine());
         }
 
         public static void ShowPlanStatusList()

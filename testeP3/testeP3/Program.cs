@@ -22,15 +22,9 @@ namespace testeP3
             listPlans.AddPlan(new Plan("Plano Semestral", 2));
             listPlans.AddPlan(new Plan("Plano Anual", 1));
 
-            string optionMenu;
-
             while (programOn)
-            { 
-                ShowData.showMenu();
-
-                optionMenu = Console.ReadLine();
-
-                programOn = MenuFunctions.ReadMenuOption(optionMenu);
+            {
+                programOn = ShowData.showMenu();
             }
         }
     }
