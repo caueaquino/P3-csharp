@@ -39,24 +39,32 @@ namespace testeP3.Control
                 Console.WriteLine("Tipo cadastrado com sucesso !");
                 Console.WriteLine();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 Console.WriteLine("Erro ao tentar adicionar novo tipo !");
                 Console.WriteLine();
             }
         }
 
-        public void RemoveType(int Idp)
+        public void UpdateType(Types typeP)
+        {
+
+        }
+
+        public void RemoveType(string IdP)
         {
             Console.WriteLine();
 
             try
             {
-
+                DataBase.cnn.Query($"DELETE FROM plan_types WHERE id = {IdP}");
+                Program.listTypes = new TypesList();
                 Console.WriteLine("Tipo removido com sucesso !");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 Console.WriteLine("Erro ao tentar remover Tipo !");
             }
         }

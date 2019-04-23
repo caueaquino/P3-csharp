@@ -7,7 +7,7 @@ namespace testeP3.Model
     public class Status
     {
         public int id { get; }
-        public string name { get; private set; }
+        public string name { get; set; }
 
         public Status(string nameP)
         {

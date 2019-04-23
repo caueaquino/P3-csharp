@@ -58,7 +58,7 @@ namespace testeP3.Control
                         Console.WriteLine(" 2 - Remover Usúario");
                         Console.WriteLine(" 3 - Visualizar todos os Usúarios");
                         Console.WriteLine(" 4 - Buscar Usúario por ID");
-                        Console.WriteLine(" 5 - Editar Usúario por ID (fazer)");
+                        Console.WriteLine(" 5 - Editar Usúario por ID");
                         Console.WriteLine(" 6 - Visualizar histórico de Usúarios");
                         Console.WriteLine(" 0 - Voltar");
 
@@ -78,7 +78,7 @@ namespace testeP3.Control
 
                         Console.WriteLine(" 1 - Cadastrar Tipo de Plano");
                         Console.WriteLine(" 2 - Remover Tipo de Plano");
-                        Console.WriteLine(" 3 - Editar Tupo de Plano por ID (fazer)");
+                        Console.WriteLine(" 3 - Editar Tupo de Plano por ID");
                         Console.WriteLine(" 4 - Visualizar todos os Tipos de Plano");
                         Console.WriteLine(" 0 - Voltar");
 
@@ -98,7 +98,7 @@ namespace testeP3.Control
 
                         Console.WriteLine(" 1 - Cadastrar Status de Plano");
                         Console.WriteLine(" 2 - Remover Status de Plano");
-                        Console.WriteLine(" 3 - Editar Status de Plano por ID (fazer)");
+                        Console.WriteLine(" 3 - Editar Status de Plano por ID");
                         Console.WriteLine(" 4 - Visualizar todos os Status de Plano");
                         Console.WriteLine(" 0 - Voltar");
 
@@ -339,9 +339,54 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Insira o id do Usúario desajado: ");
-                    String auxIdEdit = Console.ReadLine();
+                    string auxIdShow2 = Console.ReadLine();
                     Console.WriteLine();
-                    Console.WriteLine("TO DO");
+                    Console.WriteLine(" ----- Dados atuais ------");
+                    User auxUser;
+                    try
+                    {
+                         auxUser = ShowData.ShowUserById(auxIdShow2, Program.listUsers.GetUserList());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        Console.WriteLine("ID não pertence a nenhum Usúario !");
+                        Console.WriteLine();
+                        Console.WriteLine("Tecle enter para continuar . . .");
+                        Console.ReadLine();
+                        return false;
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Insira os novos dados do Usúario:");
+                    Console.WriteLine();
+                    Console.Write("Nome: ");
+                    auxUser.name = Console.ReadLine();
+
+                    Console.WriteLine();
+                    Console.Write("Permitir Usúario criar planos 1 para sim 0 para não: ");
+                    if (Console.ReadLine() == "1")
+                    {
+                        auxUser.can_create_plan = true;
+                    }
+                    else
+                    {
+                        auxUser.can_create_plan = false;
+                    }
+
+                    Console.WriteLine();
+                    Console.Write("Remover Usúario 1 para sim 0 para não: ");
+                    if (Console.ReadLine() == "1")
+                    {
+                        auxUser.removed = true;
+                    }
+                    else
+                    {
+                        auxUser.removed = false;
+                    }
+
+                    Program.listUsers.UpdateUser(auxUser);
+                    Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
@@ -390,7 +435,7 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.Write("Insira o id do Tipo de plano desajado: ");
                     Console.WriteLine();
-                    Program.listTypes.RemoveType(Console.Read());
+                    Program.listTypes.RemoveType(Console.ReadLine());
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
@@ -440,8 +485,8 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Nome do Status: ");
-                    Console.WriteLine();
                     Program.listStatus.AddStatus(Console.ReadLine());
+                    Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
@@ -452,7 +497,7 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Insira o id do Status de plano desajado: ");
-                    Program.listStatus.RemoveStatus(Console.Read());
+                    Program.listStatus.RemoveStatus(Console.ReadLine());
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();

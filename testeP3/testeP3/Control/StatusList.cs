@@ -39,24 +39,32 @@ namespace testeP3.Control
                 Console.WriteLine("Status cadastrado com sucesso !");
                 Console.WriteLine();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 Console.WriteLine("Erro ao tentar adicionar novo Status !");
                 Console.WriteLine();
             }
         }
 
-        public void RemoveStatus(int IdP)
+        public void UpdateStatus(Status statusP)
+        {
+
+        }
+
+        public void RemoveStatus(string IdP)
         {
             Console.WriteLine();
 
             try
             {
-
+                DataBase.cnn.Query($"DELETE FROM plan_status WHERE id = {IdP}");
+                Program.listStatus = new StatusList();
                 Console.WriteLine("Status removido com sucesso !");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 Console.WriteLine("Erro ao tentar remover Status !");
             }
         } 

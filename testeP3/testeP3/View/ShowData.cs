@@ -150,7 +150,7 @@ namespace testeP3.View
             }
         }
 
-        public static void ShowUserById(string IdP, IDictionary<string, User> listUsersP)
+        public static User ShowUserById(string IdP, IDictionary<string, User> listUsersP)
         {
             if (listUsersP == null)
             {
@@ -173,6 +173,8 @@ namespace testeP3.View
             Console.WriteLine($"Removido: {user.removed}");
 
             Console.WriteLine();
+
+            return user;
         }
 
         public static void ShowPlanHistory()

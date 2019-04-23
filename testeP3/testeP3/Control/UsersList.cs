@@ -55,6 +55,9 @@ namespace testeP3.Control
 
             try
             {
+                DataBase.cnn.Query("UPDATE users SET name = @name, can_create_plan = @can_create_plan, removed = @removed WHERE id = @id", userP);
+                UserList[userP.id.ToString()] = userP;
+                Program.listUsersHistory = new UsersHistoryList();
                 Console.WriteLine("Usúario atualizado com sucesso !");
             }
             catch (Exception ex)
