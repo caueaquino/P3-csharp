@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using testeP3.Model;
@@ -12,11 +13,29 @@ namespace testeP3.Control
         public UsersList()
         { 
             UserList = new Dictionary<string, User>();
+
+            foreach (var item in DataBase.cnn.Query<User>("SELECT * FROM users"))
+            {
+                UserList.Add(item.id.ToString(), item);
+            }
         }
 
     public void AddUser(User userP)
         {
-            UserList.Add(userP.id.ToString(), userP);
+            Console.WriteLine();
+            Console.WriteLine();
+
+            try
+            {
+                DataBase.cnn.Query("INSERT INTO users (name, can_create_plan) VALUES (@name, @can_create_plan)", userP);
+                Program.listUsers = new UsersList();
+                Console.WriteLine("Usúario cadastrado com sucesso !");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erro ao tentar cadastrar Usúario");
+            }
         }
 
         public User GetUserById(string IdP)
@@ -29,9 +48,38 @@ namespace testeP3.Control
             return UserList;
         }
 
-        public void removeUser(string IdP)
+        public void UpdateUser(User userP)
         {
-            UserList.Remove(IdP);
+            Console.WriteLine();
+            Console.WriteLine();
+
+            try
+            {
+                Console.WriteLine("Usúario atualizado com sucesso !");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erro ao tentar atualizar Usúario !");
+            }
+        }
+
+        public void RemoveUser(string IdP)
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+
+            try
+            {
+                DataBase.cnn.Query($"UPDATE users SET removed = 1 WHERE id = {IdP}");
+                UserList[IdP].removed = true;
+                Console.WriteLine("Usúario removido com sucesso !");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erro ao tentar remover Usúario !");
+            }
         }
     }
 }

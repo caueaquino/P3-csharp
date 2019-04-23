@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using testeP3.Model;
 
@@ -12,11 +14,30 @@ namespace testeP3.Control
         public PlansList()
         {
             PlanList = new Dictionary<string, Plan>();
+
+
+            foreach (var item in DataBase.cnn.Query<Plan>("SELECT * FROM plans"))
+            {
+                PlanList.Add(item.id.ToString(), item);
+            } 
         }
 
         public void AddPlan(Plan PlanP)
         {
-            PlanList.Add(PlanP.id.ToString(), PlanP);
+            Console.WriteLine();
+            Console.WriteLine();
+            try
+            {
+                DataBase.cnn.Query("INSERT INTO plans (name, id_type, id_user) VALUES (@name, @id_type, @id_user)", PlanP);
+                PlanList.Add(PlanP.id.ToString(), PlanP);
+                Program.listPlans = new PlansList();
+                Console.WriteLine("Plano cadastrado com sucesso !");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erro ao tentar cadastrar plano !");
+            }
         }
 
         public Plan GetPlanById(string IdP)
@@ -29,9 +50,19 @@ namespace testeP3.Control
             return PlanList;
         }
            
-        public void removePlan(string IdP)
+        public void RemovePlan(string IdP)
         {
-            PlanList.Remove(IdP);
+            try
+            {
+                DataBase.cnn.Query($"DELETE FROM plans WHERE id = {IdP}");
+                PlanList.Remove(IdP);
+                Console.WriteLine("Plano removido com sucesso !");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erro ao tentar remover Plano !");
+            }
         }
     }
 }

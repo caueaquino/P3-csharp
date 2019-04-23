@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using testeP3.Control;
 
 namespace testeP3.Model
 {
@@ -16,25 +18,31 @@ namespace testeP3.Model
         public string description { get; set; }
         public decimal cost { get; set; }
 
-        private static int aux_plans_size = 0;
 
-        public Plan(string nameP, int idUserP, int idTypeP = 1, int idStatusP = 3, DateTime startDateP = default, DateTime endDateP = default, string descriptionP = "Sem Descrição", decimal costP = 0)
+        
+        public Plan(string nameP, int idUserP)
         {
-            id = 1 + aux_plans_size;
             name = nameP;
-            id_type = idTypeP;
+            id_type = 1;
             id_user = idUserP;
-            id_status = idStatusP;
-            start_date = startDateP;
-            end_date = endDateP;
-            description = descriptionP;
-            cost = costP;
-            UpAuxPlansSize();
+            id_status = 3;
+            start_date = default;
+            end_date = default;
+            description = "Sem Descrição";
+            cost = 0;
         }
 
-        private void UpAuxPlansSize()
+        public Plan(int id, string name, int id_type, int id_user, int id_status, DateTime start_date, DateTime end_date, string description, decimal cost)
         {
-            aux_plans_size++;
+            this.id = id;
+            this.name = name;
+            this.id_type = id_type;
+            this.id_user = id_user;
+            this.id_status = id_status;
+            this.start_date = start_date;
+            this.end_date = end_date;
+            this.description = description;
+            this.cost = cost;
         }
     }
 }
