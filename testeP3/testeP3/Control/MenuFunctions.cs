@@ -10,112 +10,120 @@ namespace testeP3.Control
     {
         public static bool ReadMainMenu(string menuOption)
         {
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine();
+            bool mainMenuOn = true;
 
-            switch (menuOption)
+            while (mainMenuOn)
             {
-                case "1":
-                    Console.WriteLine(" ----- Menu Planos ----- ");
-                    Console.WriteLine();
 
-                    Console.WriteLine(" Escolha uma opção:");
-                    Console.WriteLine();
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine();
 
-                    Console.WriteLine(" 1 - Cadastrar Plano");
-                    Console.WriteLine(" 2 - Remover Plano");
-                    Console.WriteLine(" 3 - Visualizar todos os Planos");
-                    Console.WriteLine(" 4 - Buscar Plano por ID");
-                    Console.WriteLine(" 5 - Editar Plano pelo ID");
-                    Console.WriteLine(" 6 - Visualizar histórico de Planos");
-                    Console.WriteLine(" 7 - Visualizar usúarios relacionados a um Plano");
-                    Console.WriteLine(" 0 - Sair");
+                switch (menuOption)
+                {
+                    case "1":
+                        Console.WriteLine(" ----- Menu Planos ----- ");
+                        Console.WriteLine();
 
-                    Console.WriteLine();
+                        Console.WriteLine(" Escolha uma opção:");
+                        Console.WriteLine();
 
-                    Console.Write(" Opção: ");
-                    Console.ReadLine();
+                        Console.WriteLine(" 1 - Cadastrar Plano");
+                        Console.WriteLine(" 2 - Remover Plano");
+                        Console.WriteLine(" 3 - Visualizar todos os Planos");
+                        Console.WriteLine(" 4 - Buscar Plano por ID");
+                        Console.WriteLine(" 5 - Editar Plano pelo ID (fazer)");
+                        Console.WriteLine(" 6 - Visualizar histórico de Planos");
+                        Console.WriteLine(" 7 - Visualizar usúarios relacionados a um Plano (fazer)");
+                        Console.WriteLine(" 8 - Visualizar planos relacionados a um Usúario (fazer)");
+                        Console.WriteLine(" 9 - Visualizar planos relacionados a um Tipo de Plano (fazer)");
+                        Console.WriteLine(" 10 - Visualizar planos relacionados a um Status de Plano (fazer)");
+                        Console.WriteLine(" 0 - Voltar");
 
-                    break;
+                        Console.WriteLine();
 
-                case "2":
-                    Console.WriteLine(" ----- Menu Usúarios ----- ");
-                    Console.WriteLine();
+                        Console.Write(" Opção: ");
+                        mainMenuOn = ReadMenuPlans(Console.ReadLine());
 
-                    Console.WriteLine(" Escolha uma opção:");
-                    Console.WriteLine();
+                        break;
 
-                    Console.WriteLine(" 1 - Cadastrar usúario");
-                    Console.WriteLine(" 2 - Remover Usúario");
-                    Console.WriteLine(" 3 - Visualizar todos os Usúarios");
-                    Console.WriteLine(" 4 - Buscar Usúario por ID");
-                    Console.WriteLine(" 5 - Editar Usúario por ID");
-                    Console.WriteLine(" 5 - Visualizar histórico de Usúarios");
-                    Console.WriteLine(" 6 - Visualizar planos relacionados a um Usúario");
-                    Console.WriteLine(" 0 - Sair");
+                    case "2":
+                        Console.WriteLine(" ----- Menu Usúarios ----- ");
+                        Console.WriteLine();
 
-                    Console.WriteLine();
+                        Console.WriteLine(" Escolha uma opção:");
+                        Console.WriteLine();
 
-                    Console.Write(" Opção: ");
-                    Console.ReadLine();
+                        Console.WriteLine(" 1 - Cadastrar usúario");
+                        Console.WriteLine(" 2 - Remover Usúario");
+                        Console.WriteLine(" 3 - Visualizar todos os Usúarios");
+                        Console.WriteLine(" 4 - Buscar Usúario por ID");
+                        Console.WriteLine(" 5 - Editar Usúario por ID (fazer)");
+                        Console.WriteLine(" 6 - Visualizar histórico de Usúarios");
+                        Console.WriteLine(" 0 - Voltar");
 
-                    break;
+                        Console.WriteLine();
 
-                case "3":
-                    Console.WriteLine(" ----- Menu Tipo de Planos ----- ");
-                    Console.WriteLine();
+                        Console.Write(" Opção: ");
+                        mainMenuOn = ReadMenuUsers(Console.ReadLine());
 
-                    Console.WriteLine(" Escolha uma opção:");
-                    Console.WriteLine();
+                        break;
 
-                    Console.WriteLine(" 1 - Cadastrar Tipo de Plano");
-                    Console.WriteLine(" 2 - Remover Tipo de Plano");
-                    Console.WriteLine(" 3 - Visualizar todos os Tipos de Plano");
-                    Console.WriteLine(" 4 - Visualizar planos relacionados a um Tipo de plano");
-                    Console.WriteLine(" 0 - Sair");
+                    case "3":
+                        Console.WriteLine(" ----- Menu Tipo de Planos ----- ");
+                        Console.WriteLine();
 
-                    Console.WriteLine();
+                        Console.WriteLine(" Escolha uma opção:");
+                        Console.WriteLine();
 
-                    Console.Write(" Opção: ");
-                    Console.ReadLine();
+                        Console.WriteLine(" 1 - Cadastrar Tipo de Plano");
+                        Console.WriteLine(" 2 - Remover Tipo de Plano");
+                        Console.WriteLine(" 3 - Editar Tupo de Plano por ID (fazer)");
+                        Console.WriteLine(" 4 - Visualizar todos os Tipos de Plano");
+                        Console.WriteLine(" 0 - Voltar");
 
-                    break;
+                        Console.WriteLine();
 
-                case "4":
-                    Console.WriteLine(" ----- Menu Status de Planos ----- ");
-                    Console.WriteLine();
+                        Console.Write(" Opção: ");
+                        mainMenuOn = ReadMenuTypes(Console.ReadLine());
 
-                    Console.WriteLine(" Escolha uma opção:");
-                    Console.WriteLine();
+                        break;
 
-                    Console.WriteLine(" 1 - Cadastrar Status de Plano");
-                    Console.WriteLine(" 2 - Remover Status de Plano");
-                    Console.WriteLine(" 3 - Visualizar todos os Status de Plano");
-                    Console.WriteLine(" 6 - Visualizar planos relacionados a um Status de Plano");
-                    Console.WriteLine(" 0 - Sair");
+                    case "4":
+                        Console.WriteLine(" ----- Menu Status de Planos ----- ");
+                        Console.WriteLine();
 
-                    Console.WriteLine();
+                        Console.WriteLine(" Escolha uma opção:");
+                        Console.WriteLine();
 
-                    Console.Write(" Opção: ");
-                    Console.ReadLine();
+                        Console.WriteLine(" 1 - Cadastrar Status de Plano");
+                        Console.WriteLine(" 2 - Remover Status de Plano");
+                        Console.WriteLine(" 3 - Editar Status de Plano por ID (fazer)");
+                        Console.WriteLine(" 4 - Visualizar todos os Status de Plano");
+                        Console.WriteLine(" 0 - Voltar");
 
-                    break;
+                        Console.WriteLine();
 
-                case "0":
-                    Console.WriteLine("Finalizando Programa !");
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para confirmar . . .");
-                    Console.Read();
+                        Console.Write(" Opção: ");
+                        mainMenuOn = ReadMenuStatus(Console.ReadLine());
 
-                    return false;
+                        break;
+
+                    case "0":
+                        Console.WriteLine("Finalizando Programa !");
+                        Console.WriteLine();
+                        Console.WriteLine("Tecle enter para confirmar . . .");
+                        Console.ReadLine();
+
+                        return false;
+                }
+
             }
-
             return true;
         }
 
 
-        public static void ReadMenuPlanos(string menuOption)
+        public static bool ReadMenuPlans(string menuOption)
         {
             Console.Clear();
             Console.WriteLine();
@@ -123,49 +131,7 @@ namespace testeP3.Control
 
             switch (menuOption)
             {
-                default:
-                    break;
-            }
-        }
-
-
-        public static void ReadMenuUser(string menuOption)
-        {
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-
-
-        public static void ReadMenuType(string menuOption)
-        {
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-
-
-        public static void ReadMenuStatus(string menuOption)
-        {
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-
-        public static bool ReadMenuOption(string menuOption)
-        {
-            string auxFunctions;
-
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine();
-
-            switch (menuOption)
-            {
-
-
                 case "1":
-                {
                     Console.WriteLine(" ----- Cadastro de Plano -----");
                     Console.WriteLine();
                     Console.WriteLine();
@@ -178,13 +144,137 @@ namespace testeP3.Control
                     int idUser = Console.Read();
                     Program.listPlans.AddPlan(new Plan(namep, idUser));
                     Console.WriteLine();
+                    Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
-                    Console.Read();
-                    Console.Read();
+                    Console.ReadLine();
+                    Console.ReadLine();
                     break;
-                }
 
                 case "2":
+                    Console.WriteLine();
+                    Console.WriteLine(" ----- Remoção de Plano por ID ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Plano desejado: ");
+                    Program.listPlans.RemovePlan(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para confirmar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "3":
+                    Console.WriteLine(" ----- Exibição dos Planos ----- ");
+                    Console.WriteLine();
+                    ShowData.ShowPlanList(Program.listPlans.GetPlanList());
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "4":
+                    Console.WriteLine(" ----- Mostrar Plano por ID ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Plano desejado: ");
+                    string auxIdShow = Console.ReadLine();
+                    Console.WriteLine();
+                    ShowData.ShowPlanbyId(auxIdShow, Program.listPlans.GetPlanList());
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "5":
+                    Console.WriteLine(" ----- Editar Plano por ID ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Plano desejado: ");
+                    String auxIdEdit = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("TO DO");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "6":
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    ShowData.ShowPlanHistory();
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "7":
+                    Console.WriteLine(" ----- Usúarios relacionados a um Plano ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Plano desejado: ");
+                    String auxIdPlan = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("TO DO");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "8":
+                    Console.WriteLine(" ----- Planos relacionados a um Usúario ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Usúario desaejado: ");
+                    String auxIdUser = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("TO DO");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "9":
+                    Console.WriteLine(" ----- Planos relacionados a um Tipo ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Tipo desejado: ");
+                    String auxIdType = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("TO DO");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "10":
+                    Console.WriteLine(" ----- Planos relacionados a um Status ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Status desejado: ");
+                    String auxIdStatus = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("TO DO");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "0":
+                    return false;
+            }
+
+            return true;
+        }
+
+        public static bool ReadMenuUsers(string menuOption)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            switch (menuOption)
+            {
+                case "1":
                     Console.WriteLine(" ----- Cadastro de Usúario ----- ");
                     Console.WriteLine();
                     Console.WriteLine();
@@ -205,23 +295,25 @@ namespace testeP3.Control
                     }
 
                     Console.WriteLine();
-                    Console.WriteLine("Usúario cadastrado com sucesso!");
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.Read();
+                    break;
+
+                case "2":
+                    Console.WriteLine();
+                    Console.WriteLine(" ----- Remoção Usúario ----- ");
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Usúario desejado: ");
+                    Program.listUsers.RemoveUser(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para confirmar . . .");
                     Console.Read();
                     break;
 
                 case "3":
-                    Console.WriteLine(" ----- Exibir Todos os planos ----- ");
-                    Console.WriteLine();
-                    ShowData.ShowPlanList(Program.listPlans.GetPlanList());
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para continuar . . .");
-                    Console.Read();
-                    break;
-
-                case "4":
-                    Console.WriteLine(" ----- Exibir todos os Usúarios ----- ");
+                    Console.WriteLine(" ----- Exibição dos Usúarios ----- ");
                     Console.WriteLine();
                     ShowData.ShowUserList(Program.listUsers.GetUserList());
                     Console.WriteLine();
@@ -229,34 +321,159 @@ namespace testeP3.Control
                     Console.Read();
                     break;
 
-                case "5":
-                    Console.WriteLine(" ----- Mostrar Plano por Id ----- ");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.Write("Insira o id do Plano desejado: ");
-                    auxFunctions = Console.ReadLine();
-                    Console.WriteLine();
-                    ShowData.ShowPlanbyId(auxFunctions, Program.listPlans.GetPlanList());
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para continuar . . .");
-                    Console.Read();
-                    break;
-
-                case "6":
+                case "4":
                     Console.WriteLine(" ----- Mostrar Usúario por id ----- ");
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Insira o id do Usúario desejado: ");
-                    auxFunctions = Console.ReadLine();
+                    string auxIdShow = Console.ReadLine();
                     Console.WriteLine();
-                    ShowData.ShowUserById(auxFunctions, Program.listUsers.GetUserList());
+                    ShowData.ShowUserById(auxIdShow, Program.listUsers.GetUserList());
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.Read();
                     break;
 
-                case "7":
-                    Console.WriteLine(" ----- Exibir tipos de status de planos ----- ");
+                case "5":
+                    Console.WriteLine(" ----- Editar Usúario por ID ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Usúario desajado: ");
+                    String auxIdEdit = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("TO DO");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "6":
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    ShowData.ShowUserHIstory();
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "0":
+                    return false;
+            }
+
+            return true;
+        }
+
+
+        public static bool ReadMenuTypes(string menuOption)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            switch (menuOption)
+            {
+                case "1":
+                    Console.WriteLine(" ----- Cadastro de tipo de plano ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Nome do Tipo de plano: ");
+                    Console.WriteLine();
+                    Program.listTypes.AddType(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "2":
+                    Console.WriteLine(" ----- Remoção de tipo de plano por ID ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Tipo de plano desajado: ");
+                    Console.WriteLine();
+                    Program.listTypes.RemoveType(Console.Read());
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "3":
+                    Console.WriteLine(" ----- Editar tipo de plano por ID ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Tipo de plano desajado: ");
+                    String auxIdEdit = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("TO DO");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "4":
+                    Console.WriteLine(" ----- Exibição de tipos de plano ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    ShowData.ShowPlanTypesList();
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.Read();
+                    break;
+
+                case "0":
+                    return false;
+            }
+
+            return true;
+        }
+
+
+        public static bool ReadMenuStatus(string menuOption)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            switch (menuOption)
+            {
+                case "1":
+                    Console.WriteLine(" ----- Cadastro de status de plano ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Nome do Status: ");
+                    Console.WriteLine();
+                    Program.listStatus.AddStatus(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "2":
+                    Console.WriteLine(" ----- Remoção de status de plano por ID ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Status de plano desajado: ");
+                    Program.listStatus.RemoveStatus(Console.Read());
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    Console.ReadLine();
+                    break;
+
+                case "3":
+                    Console.WriteLine(" ----- Editar status de plano por ID ----- ");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Insira o id do Status de plano desajado: ");
+                    String auxIdEdit = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.WriteLine("TO DO");
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter para continuar . . .");
+                    Console.ReadLine();
+                    break;
+
+                case "4":
+                    Console.WriteLine(" ----- Exibição de status de plano ----- ");
                     Console.WriteLine();
                     Console.WriteLine();
                     ShowData.ShowPlanStatusList();
@@ -265,41 +482,8 @@ namespace testeP3.Control
                     Console.Read();
                     break;
 
-                case "8":
-                    Console.WriteLine();
-                    Console.WriteLine(" ----- Remoção Plano ----- ");
-                    Console.WriteLine();
-                    Console.Write("Insira o id do Plano desejado: ");
-                    Program.listPlans.removePlan(Console.ReadLine());
-                    Console.WriteLine();
-                    Console.WriteLine("Plano removido com sucesso !");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para confirmar . . .");
-                    Console.Read();
-                    break;
-
-                case "9":
-                    Console.WriteLine();
-                    Console.WriteLine(" ----- Remoção Usúario ----- ");
-                    Console.WriteLine();
-                    Console.Write("Insira o id do Usúario desejado: ");
-                    Program.listUsers.removeUser(Console.ReadLine());
-                    Console.WriteLine();
-                    Console.WriteLine("Usúario removido com sucesso !");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para confirmar . . .");
-                    Console.Read();
-                    break;
-
                 case "0":
-                    Console.WriteLine("Finalizando Programa !");
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para confirmar . . .");
-                    Console.Read();
                     return false;
-
             }
 
             return true;

@@ -31,15 +31,41 @@ namespace testeP3.View
             return MenuFunctions.ReadMainMenu(Console.ReadLine());
         }
 
+        public static void ShowPlanTypesList()
+        {
+            Console.WriteLine();
+            Console.WriteLine(" ----- Lista de Tipos dos Planos ----- ");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.Write("ID:".PadRight(10));
+            Console.WriteLine("Nome: ");
+            Console.WriteLine();
+
+            foreach (var item in Program.listTypes.GetPlanTypeList())
+            {
+                Console.WriteLine();
+                Console.Write($"{item.id}".PadRight(10));
+                Console.WriteLine($"{item.name}");
+            }
+        }
+
         public static void ShowPlanStatusList()
         {
             Console.WriteLine();
-            Console.WriteLine("Lista de Status dos Planos:");
+            Console.WriteLine(" ----- Lista de Status dos Planos ----- ");
+            Console.WriteLine();
             Console.WriteLine();
 
-            foreach (var item in PlanStatus.getPlanStatusList())
+            Console.Write("ID:".PadRight(10));
+            Console.WriteLine("Nome: ");
+            Console.WriteLine();
+
+            foreach (var item in Program.listStatus.GetPlanStatusList())
             {
-                Console.WriteLine(item);
+                Console.WriteLine();
+                Console.Write($"{item.id}".PadRight(10));
+                Console.WriteLine($"{item.name}");
             }
 
             Console.WriteLine();
@@ -53,7 +79,7 @@ namespace testeP3.View
             }
 
             Console.WriteLine();
-            Console.WriteLine("Lista Planos:");
+            Console.WriteLine(" ----- Lista Planos ------ ");
             Console.WriteLine();
 
             foreach (var plan in planListP)
@@ -84,7 +110,7 @@ namespace testeP3.View
             listPlanP.TryGetValue(IdP, out plan);
 
             Console.WriteLine();
-            Console.WriteLine("Plano:");
+            Console.WriteLine(" ----- Plano ----- ");
             Console.WriteLine();
 
             Console.WriteLine($"ID: {plan.id}");
@@ -108,7 +134,7 @@ namespace testeP3.View
             }
 
             Console.WriteLine();
-            Console.WriteLine("Lista Usúarios:");
+            Console.WriteLine(" ----- Lista Usúarios ----- ");
             Console.WriteLine();
 
             foreach (var user in listUsersP)
@@ -134,9 +160,9 @@ namespace testeP3.View
             User user;
 
             listUsersP.TryGetValue(IdP, out user);
-            
+
             Console.WriteLine();
-            Console.WriteLine("Usúario:");
+            Console.WriteLine(" ----- Usúario ----- ");
             Console.WriteLine();
 
             Console.WriteLine($"ID: {user.id}");
@@ -147,6 +173,52 @@ namespace testeP3.View
             Console.WriteLine($"Removido: {user.removed}");
 
             Console.WriteLine();
+        }
+
+        public static void ShowPlanHistory()
+        {
+            Console.WriteLine();
+            Console.WriteLine(" ----- Histórico Planos ----- ");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.Write("ID".PadRight(10));
+            Console.Write("ID Plano".PadRight(20));
+            Console.Write("ID Status".PadRight(20));
+            Console.WriteLine("Data");
+            Console.WriteLine();
+
+            foreach (var item in Program.listPlansHistory.GetPlanHistoryList())
+            {
+                Console.WriteLine();
+                Console.Write($"{item.id}".PadRight(10));
+                Console.Write($"{item.id_plan}".PadRight(20));
+                Console.Write($"{item.id_plan_status}".PadRight(20));
+                Console.WriteLine($"{item.date}");
+            }
+        }
+
+        public static void ShowUserHIstory()
+        {
+            Console.WriteLine();
+            Console.WriteLine(" ----- Histórico Usúarios ----- ");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.Write("ID".PadRight(10));
+            Console.Write("ID Usúario".PadRight(20));
+            Console.Write("Status".PadRight(12));
+            Console.Write("Pode criar plano".PadRight(24));
+            Console.WriteLine("Data");
+            Console.WriteLine();
+
+            foreach (var item in Program.listUsersHistory.GetUserHistoryList())
+            {
+                Console.WriteLine();
+                Console.Write($"{item.id}".PadRight(10));
+                Console.Write($"{item.id_user}".PadRight(20));
+                Console.Write($"{item.status}".PadRight(12));
+                Console.Write($"{item.create_new_plan}".PadRight(24));
+                Console.WriteLine($"{item.date}");
+            }
         }
     }
 }

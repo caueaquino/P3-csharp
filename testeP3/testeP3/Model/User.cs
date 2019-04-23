@@ -13,22 +13,23 @@ namespace testeP3.Model
         public bool can_create_plan { get; set; }
         public bool removed { get; set; }
 
-        private static int aux_users_size = 0;
-
         public User(string nameP, bool canCreatePlanP)
         {
-            id = 1 + aux_users_size;
             name = nameP;
             register_date = DateTime.Now;
             last_changed_date = DateTime.Now;
             can_create_plan = canCreatePlanP;
             removed = false;
-            UpAuxUsers();
         }
 
-        private static void UpAuxUsers()
+        public User(int id, string name, DateTime register_date, DateTime last_changed_date, bool can_create_plan, bool removed)
         {
-            aux_users_size++;
+            this.id = id;
+            this.name = name;
+            this.register_date = register_date;
+            this.last_changed_date = last_changed_date;
+            this.can_create_plan = can_create_plan;
+            this.removed = removed;
         }
     }
 }
