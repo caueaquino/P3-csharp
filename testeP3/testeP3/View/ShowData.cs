@@ -98,7 +98,7 @@ namespace testeP3.View
             }
         }
 
-        public static void ShowPlanbyId(string IdP, IDictionary<String, Plan> listPlanP)
+        public static Plan ShowPlanById(string IdP, IDictionary<String, Plan> listPlanP)
         {
             if (listPlanP == null)
             {
@@ -124,6 +124,8 @@ namespace testeP3.View
             Console.WriteLine($"Custo: {plan.cost}");
 
             Console.WriteLine();
+
+            return plan;
         }
 
         public static void ShowUserList(IDictionary<string, User> listUsersP)

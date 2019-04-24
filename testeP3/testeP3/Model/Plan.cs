@@ -20,16 +20,16 @@ namespace testeP3.Model
 
 
         
-        public Plan(string nameP, int idUserP)
+        public Plan(string nameP, int idTypeP, int idUserP, DateTime dateBeginP, DateTime dateEndP, string descP, decimal costP)
         {
             name = nameP;
-            id_type = 1;
+            id_type = idTypeP;
             id_user = idUserP;
             id_status = 3;
-            start_date = default;
-            end_date = default;
-            description = "Sem Descrição";
-            cost = 0;
+            start_date = dateBeginP;
+            end_date = dateEndP;
+            description = descP;
+            cost = costP;
         }
 
         public Plan(int id, string name, int id_type, int id_user, int id_status, DateTime start_date, DateTime end_date, string description, decimal cost)

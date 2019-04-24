@@ -24,11 +24,12 @@ namespace testeP3.Control
 
         public void AddPlan(Plan PlanP)
         {
+
             Console.WriteLine();
             Console.WriteLine();
             try
             {
-                DataBase.cnn.Query("INSERT INTO plans (name, id_type, id_user) VALUES (@name, @id_type, @id_user)", PlanP);
+                DataBase.cnn.Query("INSERT INTO plans (name, id_type, id_user, start_date, end_date, description, cost) VALUES (@name, @id_type, @id_user, @start_date, @end_date, @description, @cost)", PlanP);
                 PlanList.Add(PlanP.id.ToString(), PlanP);
                 Program.listPlans = new PlansList();
                 Console.WriteLine("Plano cadastrado com sucesso !");
@@ -38,6 +39,11 @@ namespace testeP3.Control
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("Erro ao tentar cadastrar plano !");
             }
+        }
+
+        public void UpdatePlan(Plan planP)
+        {
+
         }
 
         public Plan GetPlanById(string IdP)

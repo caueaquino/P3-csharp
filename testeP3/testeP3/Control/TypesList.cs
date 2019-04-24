@@ -28,14 +28,41 @@ namespace testeP3.Control
             return TypeList;
         }
 
-        public void AddType(string nameP)
+        public Types GetTypeById(string IdP)
         {
+            foreach (var item in Program.listTypes.GetPlanTypeList())
+            {
+                if (item.id.ToString() == IdP)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine(" ----- Tipo Atual -----");
+                    Console.WriteLine();
+                    Console.WriteLine($"ID: {item.id}");
+                    Console.WriteLine($"Nome: {item.name}");
+                    Console.WriteLine();
+
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
+        public void AddType(Types typeP)
+        {
+            if (typeP == null)
+            {
+                throw new ArgumentNullException(nameof(typeP));
+            }
+
             Console.WriteLine();
 
             try
             {
-                TypeList.Add(new Types(nameP));
-
+                DataBase.cnn.Query("INSERT INTO plan_types (name) VALUES (@name)", typeP);
+                TypeList.Add(typeP);
+                Program.listTypes = new TypesList();
                 Console.WriteLine("Tipo cadastrado com sucesso !");
                 Console.WriteLine();
             }
@@ -49,7 +76,31 @@ namespace testeP3.Control
 
         public void UpdateType(Types typeP)
         {
+            if (typeP == null)
+            {
+                throw new ArgumentNullException(nameof(typeP));
+            }
 
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Insira os novos dados do Tipo:");
+            Console.WriteLine();
+            Console.Write("Nome: ");
+            typeP.name = Console.ReadLine();
+            Console.WriteLine();
+            try
+            {
+                DataBase.cnn.Query("UPDATE plan_types SET name = @name WHERE id = @id", typeP);
+                Program.listTypes = new TypesList();
+                Console.WriteLine("Tipo de Plano atualizado com sucesso !");
+                Console.WriteLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erro ao tentar atualizar Tipo de Plano !");
+                Console.WriteLine();
+            }
         }
 
         public void RemoveType(string IdP)

@@ -32,12 +32,12 @@ namespace testeP3.Control
                         Console.WriteLine(" 2 - Remover Plano");
                         Console.WriteLine(" 3 - Visualizar todos os Planos");
                         Console.WriteLine(" 4 - Buscar Plano por ID");
-                        Console.WriteLine(" 5 - Editar Plano pelo ID (fazer)");
+                        Console.WriteLine(" 5 - Editar Plano pelo ID");
                         Console.WriteLine(" 6 - Visualizar histórico de Planos");
-                        Console.WriteLine(" 7 - Visualizar usúarios relacionados a um Plano (fazer)");
-                        Console.WriteLine(" 8 - Visualizar planos relacionados a um Usúario (fazer)");
-                        Console.WriteLine(" 9 - Visualizar planos relacionados a um Tipo de Plano (fazer)");
-                        Console.WriteLine(" 10 - Visualizar planos relacionados a um Status de Plano (fazer)");
+                        //Console.WriteLine(" 7 - Visualizar usúarios relacionados a um Plano");
+                        //Console.WriteLine(" 8 - Visualizar planos relacionados a um Usúario");
+                        //Console.WriteLine(" 9 - Visualizar planos relacionados a um Tipo de Plano");
+                        //Console.WriteLine(" 10 - Visualizar planos relacionados a um Status de Plano");
                         Console.WriteLine(" 0 - Voltar");
 
                         Console.WriteLine();
@@ -78,7 +78,7 @@ namespace testeP3.Control
 
                         Console.WriteLine(" 1 - Cadastrar Tipo de Plano");
                         Console.WriteLine(" 2 - Remover Tipo de Plano");
-                        Console.WriteLine(" 3 - Editar Tupo de Plano por ID");
+                        Console.WriteLine(" 3 - Editar Tipo de Plano por ID");
                         Console.WriteLine(" 4 - Visualizar todos os Tipos de Plano");
                         Console.WriteLine(" 0 - Voltar");
 
@@ -138,11 +138,26 @@ namespace testeP3.Control
                     Console.WriteLine("Preencha os campos abaixo:");
                     Console.WriteLine();
                     Console.Write("Nome: ");
-                    string namep = Console.ReadLine();
+                    string nameP = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.Write("ID Tipo: ");
+                    int idTypeP = int.Parse(Console.ReadLine());
                     Console.WriteLine();
                     Console.Write("ID Usúario(Responsável): ");
-                    int idUser = Console.Read();
-                    Program.listPlans.AddPlan(new Plan(namep, idUser));
+                    int idUserP = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.Write("Data início: ");
+                    DateTime dateBeginP = DateTime.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.Write("Data término: ");
+                    DateTime dateEndP = DateTime.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.Write("Descrição: ");
+                    string descP = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.Write("Custo: ");
+                    decimal costP = decimal.Parse(Console.ReadLine());
+                    Program.listPlans.AddPlan(new Plan(nameP, idTypeP, idUserP, dateBeginP, dateEndP, descP, costP));
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
@@ -179,7 +194,7 @@ namespace testeP3.Control
                     Console.Write("Insira o id do Plano desejado: ");
                     string auxIdShow = Console.ReadLine();
                     Console.WriteLine();
-                    ShowData.ShowPlanbyId(auxIdShow, Program.listPlans.GetPlanList());
+                    ShowData.ShowPlanById(auxIdShow, Program.listPlans.GetPlanList());
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
@@ -190,9 +205,50 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Insira o id do Plano desejado: ");
-                    String auxIdEdit = Console.ReadLine();
+                    String auxIdShow2 = Console.ReadLine();
                     Console.WriteLine();
-                    Console.WriteLine("TO DO");
+                    Console.WriteLine(" ----- Dados atuais ------");
+                    Plan auxPlan;
+                    try
+                    {
+                        auxPlan = ShowData.ShowPlanById(auxIdShow2, Program.listPlans.GetPlanList());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        Console.WriteLine("ID não pertence a nenhum Plano !");
+                        Console.WriteLine();
+                        Console.WriteLine("Tecle enter para continuar . . .");
+                        Console.ReadLine();
+                        return false;
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Insira os novos dados do Plano:");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Nome: ");
+                    auxPlan.name = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.Write("ID Tipo: ");
+                    auxPlan.id_type = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.Write("ID Usúario(Responsável): ");
+                    auxPlan.id_user = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.Write("Data início: ");
+                    auxPlan.start_date = DateTime.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.Write("Data término: ");
+                    auxPlan.end_date = DateTime.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.Write("Descrição: ");
+                    auxPlan.description = Console.ReadLine();
+                    Console.WriteLine();
+                    Console.Write("Custo: ");
+                    auxPlan.cost = decimal.Parse(Console.ReadLine());
+                    Program.listPlans.UpdatePlan(auxPlan);
+                    Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
@@ -207,58 +263,58 @@ namespace testeP3.Control
                     Console.ReadLine();
                     break;
 
-                case "7":
-                    Console.WriteLine(" ----- Usúarios relacionados a um Plano ----- ");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.Write("Insira o id do Plano desejado: ");
-                    String auxIdPlan = Console.ReadLine();
-                    Console.WriteLine();
-                    Console.WriteLine("TO DO");
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para continuar . . .");
-                    Console.ReadLine();
-                    break;
-
-                case "8":
-                    Console.WriteLine(" ----- Planos relacionados a um Usúario ----- ");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.Write("Insira o id do Usúario desaejado: ");
-                    String auxIdUser = Console.ReadLine();
-                    Console.WriteLine();
-                    Console.WriteLine("TO DO");
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para continuar . . .");
-                    Console.ReadLine();
-                    break;
-
-                case "9":
-                    Console.WriteLine(" ----- Planos relacionados a um Tipo ----- ");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.Write("Insira o id do Tipo desejado: ");
-                    String auxIdType = Console.ReadLine();
-                    Console.WriteLine();
-                    Console.WriteLine("TO DO");
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para continuar . . .");
-                    Console.ReadLine();
-                    break;
-
-                case "10":
-                    Console.WriteLine(" ----- Planos relacionados a um Status ----- ");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.Write("Insira o id do Status desejado: ");
-                    String auxIdStatus = Console.ReadLine();
-                    Console.WriteLine();
-                    Console.WriteLine("TO DO");
-                    Console.WriteLine();
-                    Console.WriteLine("Tecle enter para continuar . . .");
-                    Console.ReadLine();
-                    break;
-
+               //case "7":
+               //    Console.WriteLine(" ----- Usúarios relacionados a um Plano ----- ");
+               //    Console.WriteLine();
+               //    Console.WriteLine();
+               //    Console.Write("Insira o id do Plano desejado: ");
+               //    String auxIdPlan = Console.ReadLine();
+               //    Console.WriteLine();
+               //    Console.WriteLine("TO DO");
+               //    Console.WriteLine();
+               //    Console.WriteLine("Tecle enter para continuar . . .");
+               //    Console.ReadLine();
+               //    break;
+               //
+               //case "8":
+               //    Console.WriteLine(" ----- Planos relacionados a um Usúario ----- ");
+               //    Console.WriteLine();
+               //    Console.WriteLine();
+               //    Console.Write("Insira o id do Usúario desaejado: ");
+               //    String auxIdUser = Console.ReadLine();
+               //    Console.WriteLine();
+               //    Console.WriteLine("TO DO");
+               //    Console.WriteLine();
+               //    Console.WriteLine("Tecle enter para continuar . . .");
+               //    Console.ReadLine();
+               //    break;
+               //
+               //case "9":
+               //    Console.WriteLine(" ----- Planos relacionados a um Tipo ----- ");
+               //    Console.WriteLine();
+               //    Console.WriteLine();
+               //    Console.Write("Insira o id do Tipo desejado: ");
+               //    String auxIdType = Console.ReadLine();
+               //    Console.WriteLine();
+               //    Console.WriteLine("TO DO");
+               //    Console.WriteLine();
+               //    Console.WriteLine("Tecle enter para continuar . . .");
+               //    Console.ReadLine();
+               //    break;
+               //
+               //case "10":
+               //    Console.WriteLine(" ----- Planos relacionados a um Status ----- ");
+               //    Console.WriteLine();
+               //    Console.WriteLine();
+               //    Console.Write("Insira o id do Status desejado: ");
+               //    String auxIdStatus = Console.ReadLine();
+               //    Console.WriteLine();
+               //    Console.WriteLine("TO DO");
+               //    Console.WriteLine();
+               //    Console.WriteLine("Tecle enter para continuar . . .");
+               //    Console.ReadLine();
+               //    break;
+               
                 case "0":
                     return false;
             }
@@ -423,7 +479,7 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.Write("Nome do Tipo de plano: ");
                     Console.WriteLine();
-                    Program.listTypes.AddType(Console.ReadLine());
+                    Program.listTypes.AddType(new Types(Console.ReadLine()));
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
@@ -446,9 +502,8 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Insira o id do Tipo de plano desajado: ");
-                    String auxIdEdit = Console.ReadLine();
+                    Program.listTypes.UpdateType(Program.listTypes.GetTypeById(Console.ReadLine()));
                     Console.WriteLine();
-                    Console.WriteLine("TO DO");
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
@@ -485,7 +540,7 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Nome do Status: ");
-                    Program.listStatus.AddStatus(Console.ReadLine());
+                    Program.listStatus.AddStatus(new Status(Console.ReadLine()));
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
@@ -499,6 +554,7 @@ namespace testeP3.Control
                     Console.Write("Insira o id do Status de plano desajado: ");
                     Program.listStatus.RemoveStatus(Console.ReadLine());
                     Console.WriteLine();
+                    Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
                     Console.ReadLine();
@@ -509,9 +565,8 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Insira o id do Status de plano desajado: ");
-                    String auxIdEdit = Console.ReadLine();
+                    Program.listStatus.UpdateStatus(Program.listStatus.GetStatusById(Console.ReadLine()));
                     Console.WriteLine();
-                    Console.WriteLine("TO DO");
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.ReadLine();
@@ -522,6 +577,7 @@ namespace testeP3.Control
                     Console.WriteLine();
                     Console.WriteLine();
                     ShowData.ShowPlanStatusList();
+                    Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Tecle enter para continuar . . .");
                     Console.Read();
